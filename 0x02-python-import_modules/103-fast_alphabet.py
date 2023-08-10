@@ -1,4 +1,4 @@
-#!/usr/bin/env python3
+#!/usr/bin/python3
 import string
-print(string.ascii_uppercase, end='')
+print(''.join(getattr(string, 'ascii_uppercase')))
 
