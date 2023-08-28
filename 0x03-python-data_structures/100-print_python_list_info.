@@ -1,0 +1,34 @@
+#include <Python.h>
+
+void print_python_list_info(PyObject *p)
+{
+    Py_ssize_t size = PyList_Size(p);
+
+    printf("[*] Size of the Python List = %ld\n", size);
+    printf("[*] Allocated = %ld\n", ((PyListObject *)p)->allocated);
+
+    for (Py_ssize_t i = 0; i < size; i++)
+    {
+        PyObject *element = PyList_GetItem(p, i);
+        const char *typeName = Py_TYPE(element)->tp_name;
+        printf("Element %ld: %s\n", i, typeName);
+    }
+}
+
+int main(void)
+{
+    PyObject *pList = PyList_New(0);
+    PyObject *pInt = PyLong_FromLong(42);
+    PyObject *pStr = PyUnicode_FromString("Python");
+
+    PyList_Append(pList, pInt);
+    PyList_Append(pList, pStr);
+
+    print_python_list_info(pList);
+
+    Py_DECREF(pList);
+    Py_DECREF(pInt);
+    Py_DECREF(pStr);
+
+    return (0);
+}
