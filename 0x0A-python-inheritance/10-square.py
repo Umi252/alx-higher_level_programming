@@ -3,6 +3,7 @@
 Defines classes BaseGeometry, Rectangle, and Square.
 """
 
+
 class BaseGeometry:
     def area(self):
         raise Exception("area() is not implemented")
@@ -12,6 +13,7 @@ class BaseGeometry:
             raise TypeError(f"{name} must be an integer")
         if value <= 0:
             raise ValueError(f"{name} must be greater than 0")
+
 
 class Rectangle(BaseGeometry):
     def __init__(self, width, height):
@@ -25,6 +27,7 @@ class Rectangle(BaseGeometry):
 
     def __str__(self):
         return f"[Rectangle] {self.__width}/{self.__height}"
+
 
 class Square(Rectangle):
     def __init__(self, size):
