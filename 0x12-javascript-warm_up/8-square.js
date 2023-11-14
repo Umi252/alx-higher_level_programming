@@ -10,5 +10,5 @@ if (!isNaN(size)) {
     console.log(row);
   }
 } else {
-  console.log("Missing size");
+  console.log('Missing size');
 }
